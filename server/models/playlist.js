@@ -8,21 +8,21 @@ let songDetails = new Schema({
       // required: true
     },
     albumArt: {
-      type: Image,
+      // type: Image,
       // src: 'artworkUrl60.replace(/60x60/g, "250x250")'
     },
     artist: {
         type: String,
         //required: true
     },
-    collection: {
+    artistCollection: {
         type: String,
     },
     price: {
         type: Number,
     },
     preview: {
-        type: URL
+        // type: URL
     }
 })
 
