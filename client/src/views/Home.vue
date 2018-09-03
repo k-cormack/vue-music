@@ -1,7 +1,8 @@
 <template>
   <div class="home">
-    <!-- <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/> -->
+    <!-- <div>
+      <router-link to="/Playlists">Playlists</router-link>
+    </div> -->
       <div class="row">
       <form class="form-inline" @submit.prevent="getSongResults">
             <!--DO NOT MODIFY THE ID OR ONCLICK ATTRIBUTES IN THIS FORM-->
@@ -16,7 +17,7 @@
         <SongResults/>
         </div>
         <div class="col-4">
-        <Playlists/>
+        <Playlist/>
         </div>
       </div>
   </div>
@@ -26,11 +27,11 @@
 // @ is an alias to /src
 import HelloWorld from '@/components/HelloWorld.vue';
 import SongResults from '@/components/SongResults';
-import Playlists from '@/components/Playlists'
+import Playlist from '@/components/Playlist'
 
 
 export default {
-  name: 'home',
+  name: 'Home',
   data() {
     return {
       searchArtist: this.searchArtist
@@ -70,7 +71,7 @@ export default {
 
   components: {
     SongResults,
-    Playlists
+    Playlist
   }
 }
 </script>

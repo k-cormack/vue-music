@@ -8,6 +8,14 @@
               <p class="card-text">{{song.artistName}}</p>
               <p class="card-text">{{song.collectionName}}</p>
               <p class="card-text">${{song.collectionPrice}}</p>
+              <!-- <button>Add to Playlist</button> -->
+              <form class="form" @submit.prevent="addToPlayList(song)">
+                <button type="submit" class="btn-floating">
+                  <i class="fa fa-plus">
+                  </i>
+                </button>
+                    Add to Playlist
+              </form>
           </div>
           <div class="card-footer">
           <audio controls class="audio-controls">
@@ -24,7 +32,9 @@
 export default {
     name: "SongResults",
     data(){
-        return{};
+        return{
+          newSong: this.song
+        };
     },
 
     // mounted: {
@@ -38,9 +48,13 @@ export default {
 
     },
 
-    // methods: {
+    methods: {
+      addToPlayList(song) {
+        debugger
+        this.$store.dispatch('addToPlayList', song)
+      }
 
-    // }
+    },
 
 
 };

@@ -3,7 +3,7 @@ import Router from 'vue-router'
 // @ts-ignore
 import Home from './views/Home.vue'
 // @ts-ignore
-import Playlists from './components/Playlists.vue'
+import Playlist from './components/Playlist.vue'
 
 Vue.use(Router)
 
@@ -15,9 +15,9 @@ export default new Router({
       component: Home
     },
     {
-      path: '/playlists',
-      name: 'playlists',
-      component: Playlists
+      path: '/playlist',
+      name: 'playlist',
+      component: Playlist
     }
   ]
 })

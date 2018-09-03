@@ -1,8 +1,6 @@
 <template>
   <div id="app" class="container">
-    <div>
-      <router-link to="/Playlists">Playlists</router-link>
-    </div>
+    
     <router-view/>
   </div>
 </template>
