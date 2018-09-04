@@ -4,7 +4,7 @@
       <router-link to="/Playlists">Playlists</router-link>
     </div> -->
       <div class="row">
-      <form class="form-inline" @submit.prevent="getSongResults">
+      <form class="form-inline" @submit.prevent="getSongResults" id='artistForm'>
             <!--DO NOT MODIFY THE ID OR ONCLICK ATTRIBUTES IN THIS FORM-->
             
                 <input type="text" v-model="searchArtist" class="form-control m-2" name="artist" placeholder="Artist, Album, or Song Name" size="25" required/>
@@ -31,7 +31,7 @@ import Playlist from '@/components/Playlist'
 
 
 export default {
-  name: 'Home',
+  name: 'home',
   data() {
     return {
       searchArtist: this.searchArtist
@@ -56,7 +56,8 @@ export default {
 
     addToPlaylist() {
       this.$store.dispatch('addToPlaylist', this.songId)
-    }
+    },
+    
   },
 
   computed: {

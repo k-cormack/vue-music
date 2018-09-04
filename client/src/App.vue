@@ -6,6 +6,12 @@
 </template>
 
 <style>
+body {
+  padding-top: 10px;
+  background: url('./assets/apu2Url.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+}
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

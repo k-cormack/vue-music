@@ -1,17 +1,20 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import Axios from 'axios'
+// import Song from './models/Song.js'
 
 
 Vue.use(Vuex)
 
+// @ts-ignore
 let songListApi = Axios.create({
-  baseURL: 'https://itunes.apple.com/search?term=',
+  baseURL: "https://itunes.apple.com/search?term=",
   timeout: 3000
 })
 
+// @ts-ignore
 let playListApi = Axios.create({
-  baseURL: '//localhost:3000/api/songs',
+  baseURL: "//localhost:3000/api/songs",
   timeout: 3000
 })
 
@@ -51,12 +54,21 @@ export default new Vuex.Store({
         commit('setPlayList', res.data)
       })
     },
+  
     addToPlayList({ commit, dispatch }, song) {
       playListApi.post('', song)
       .then(res => {
-        debugger
       commit('setPlayList', res.data)
       })
+    },
+
+    addToLocalStorage(localSong) {
+        localStorage.setItem('songInfo', JSON.stringify(localSong))
+    },
+
+    loadSongs() {
+      let playListSongs = []
+      playListSongs = JSON.parse(localStorage.getItem('songInfo')) || []
     },
 
     newPlayList({ commit, dispatch}, playListConfig) {

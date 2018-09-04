@@ -16,14 +16,18 @@ router.get('/', (req, res, next) => {
 //get only one song by Id
 router.get('/:id', (req, res, next) => {
     Songs.findById(req.params.id)
-    .then(song => res.send(song))
+    .then(song => {
+        res.send(song)
+    })
     .catch(next)
 })
 
 //Add song
-router.post('/', (req, res, next) => {
+router.post('', (req, res, next) => {
     Songs.create(req.body)
-    .then(song => res.send(song))
+    .then(song => {
+        res.send(song)
+    })
     .catch(next)
 })
 
@@ -39,7 +43,7 @@ router.post('/', (req, res, next) => {
 //Delete a specific song
 router.delete('/:id', (req, res, next) => {
     Songs.findByIdAndRemove(req.params.id)
-    .then(() => ({
+    .then(() => res.send({
         message: 'Song successfully deleted'
     }))
     .catch(next)
