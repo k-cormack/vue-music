@@ -36,6 +36,7 @@ export default new Vuex.Store({
     },
     setPlayList(state, data) {
       state.playList = data
+      debugger
     }
 
   },
@@ -59,6 +60,7 @@ export default new Vuex.Store({
       playListApi.post('', song)
       .then(res => {
         commit('setPlayList', res.data)
+        debugger
         
       })
     },
