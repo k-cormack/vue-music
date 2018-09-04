@@ -10,8 +10,8 @@ server.use(bp.json())
 server.use(bp.urlencoded({
     extended: true
 }))
-server.use(cors)
-server.use(express.static(__dirname + '/../www/'))
+server.use(cors())
+
 
 //Routes
 let songsRoute = require('./routes/songs')

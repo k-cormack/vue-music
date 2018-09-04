@@ -58,18 +58,26 @@ export default new Vuex.Store({
     addToPlayList({ commit, dispatch }, song) {
       playListApi.post('', song)
       .then(res => {
-      commit('setPlayList', res.data)
+        commit('setPlayList', res.data)
+        
+      })
+    },
+    
+    removeFromPlayList({commit, dispatch}, song) {
+      playListApi.delete('', song)
+      .then(res => {
+        commit('setPlayList', res.data)
       })
     },
 
-    addToLocalStorage(localSong) {
-        localStorage.setItem('songInfo', JSON.stringify(localSong))
-    },
+    // addToLocalStorage(localSong) {
+    //     localStorage.setItem('songInfo', JSON.stringify(localSong))
+    // },
 
-    loadSongs() {
-      let playListSongs = []
-      playListSongs = JSON.parse(localStorage.getItem('songInfo')) || []
-    },
+    // loadSongs() {
+    //   let playListSongs = []
+    //   playListSongs = JSON.parse(localStorage.getItem('songInfo')) || []
+    // },
 
     newPlayList({ commit, dispatch}, playListConfig) {
       playListApi.post('', {playListConfig})

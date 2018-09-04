@@ -9,7 +9,7 @@
               <p class="card-text">{{song.collectionName}}</p>
               <p class="card-text">${{song.collectionPrice}}</p>
               <!-- <button>Add to Playlist</button> -->
-              <form class="form" @submit.prevent="addToPlayList(song), addToLocalStorage(song)">
+              <form class="form" @submit.prevent="addToPlayList(song)">
                 <button type="submit" class="btn-floating">
                   <i class="fa fa-plus">
                   </i>

@@ -7,20 +7,20 @@ let schemaName = 'Song'
 
 
 let schema = new Schema({
-    songId: {
-        type: ObjectId,
-    },
-    songTitle: {
+    // trackId: {
+    //     type: ObjectId,
+    // },
+    trackName: {
         type: String,
         // required: true
       },
-    songArtist: {
+    artistName: {
         type: String,
         //required: true
       },
-    // preview: {
-    //     type: URL
-    // },
+    previewUrl: {
+        type: String
+    },
 })
 
 module.exports = mongoose.model(schemaName, schema)

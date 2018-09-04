@@ -7,8 +7,8 @@
         <div class="card border-dark mb-3">
           <!-- <img class="card-img-top img-responsive" :src="song.artworkUrl100" alt="art"/> -->
           <div class="card-body">
-              <h5 class="card-title">{{song.trackName}}</h5>
-              <p class="card-text">{{song.artistName}}</p>
+              <h5 class="card-title">{{song.artistName}}</h5>
+              <p class="card-text">{{song.trackName}}</p>
               <button>Remove From Playlist</button>
               <!-- <p class="card-text">{{song.collectionName}}</p>
               <p class="card-text">${{song.collectionPrice}}</p> -->
@@ -41,13 +41,17 @@ export default {
     computed: {
       playList() {
         return this.$store.state.playList;
+        debugger
       },
 
     },
 
-    // methods: {
+    methods: {
+      removeFromPlayList(song){
+        this.$store.dispatch('removeFromPlayList', song)
+      }
 
-    // }
+    }
 
 
 };
