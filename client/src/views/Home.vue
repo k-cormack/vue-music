@@ -44,9 +44,9 @@ export default {
   // components: {
   //   HelloWorld
   // }
-  mounted() {
+  // mounted() {
 
-    },
+  //   },
 
   methods: {
     getSongResults() {

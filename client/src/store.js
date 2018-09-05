@@ -36,13 +36,13 @@ export default new Vuex.Store({
     },
     setPlayList(state, data) {
       state.playList = data
-      debugger
+    },
+    addSongToPlayList(state, song){
+      state.playList.push(song)
     }
-
   },
   actions: {
     getSongResults({ commit, dispatch}, data) {
-     
       songListApi.get('' + data)
       .then(res => {
         commit('setSongResults', res.data.results)
@@ -59,16 +59,14 @@ export default new Vuex.Store({
     addToPlayList({ commit, dispatch }, song) {
       playListApi.post('', song)
       .then(res => {
-        commit('setPlayList', res.data)
-        debugger
-        
+        commit('addSongToPlayList', res.data)
       })
     },
     
     removeFromPlayList({commit, dispatch}, song) {
-      playListApi.delete('', song)
+      playListApi.delete(song._id)
       .then(res => {
-        commit('setPlayList', res.data)
+        dispatch('getPlaylist')
       })
     },
 

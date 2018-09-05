@@ -3,13 +3,13 @@
       <!-- <div>
         <button>Create New Playlist</button>
       </div> -->
-      <div v-for="song in playList" :key="song.trackId" class="card-deck">
+      <div v-for="song in playList" :key="song._id" class="card-deck">
         <div class="card border-dark mb-3">
           <!-- <img class="card-img-top img-responsive" :src="song.artworkUrl100" alt="art"/> -->
           <div class="card-body">
               <h5 class="card-title">{{song.artistName}}</h5>
               <p class="card-text">{{song.trackName}}</p>
-              <button>Remove From Playlist</button>
+              <button @click="removeFromPlayList(song)" >Remove From Playlist</button>
               <!-- <p class="card-text">{{song.collectionName}}</p>
               <p class="card-text">${{song.collectionPrice}}</p> -->
           </div>
@@ -34,9 +34,9 @@ export default {
         return{};
     },
 
-    // mounted: {
-
-    // },
+    mounted() {
+      this.$store.dispatch('getPlaylist')
+    },
 
     computed: {
       playList() {
