@@ -11,12 +11,16 @@ let songListApi = Axios.create({
   baseURL: "https://itunes.apple.com/search?term=",
   timeout: 3000
 })
-
+var production = !window.location.host.includes('localhost');
+var baseUrl = production ? '//cormack-mytunes.herokuapp.com' : '//localhost:3000/';
 // @ts-ignore
-let playListApi = Axios.create({
-  baseURL: "https://cormack-mytunes.herokuapp.com//api/songs",
-  timeout: 3000
+let playListApi = axios.create({
+  baseURL: baseUrl + 'api/songs',
+  timeout: 2000,
+  withCredentials: true
 })
+
+
 
 
 export default new Vuex.Store({

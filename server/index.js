@@ -2,7 +2,7 @@ let express = require('express')
 let bp = require('body-parser')
 let cors = require('cors')
 require('./db/db-config')
-let port = 3000
+var port = process.env.PORT || 3000
 
 let server = express()
 
