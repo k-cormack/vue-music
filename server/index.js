@@ -5,13 +5,13 @@ require('./db/db-config')
 var port = process.env.PORT || 3000
 
 let server = express()
+server.use(express.static(__dirname + '/../../client/docs'))
 
 server.use(bp.json())
 server.use(bp.urlencoded({
     extended: true
 }))
 server.use(cors())
-server.use(express.static(__dirname + '/../../client/docs'))
 
 
 //Routes
