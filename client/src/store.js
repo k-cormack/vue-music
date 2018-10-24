@@ -14,7 +14,7 @@ let songListApi = Axios.create({
 var production = !window.location.host.includes('localhost');
 var baseUrl = production ? '//cormack-mytunes.herokuapp.com' : '//localhost:3000/';
 // @ts-ignore
-let playListApi = axios.create({
+let playListApi = Axios.create({
   baseURL: baseUrl + 'api/songs',
   timeout: 2000,
   withCredentials: true
